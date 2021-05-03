@@ -216,9 +216,9 @@ exports.delete1Crew1 = async (req, res) => {
 };
 
 exports.delete2Crew1 = async (req, res) => {
-    console.log('delete2Crew1', req.params.id);
+    console.log('delete2Crew1', req.params.a_id);
     try {
-        await Crew_1.deleteById(req.params.id).then(([rows]) => {
+        await Crew_1.deleteById(req.params.a_id).then(([rows]) => {
             res.redirect('/crew');
         });
         // res.json(req.body);
@@ -240,9 +240,9 @@ exports.delete1Crew2 = async (req, res) => {
 };
 
 exports.delete2Crew2 = async (req, res) => {
-    console.log('delete2Crew2', req.params.id);
+    console.log('delete2Crew2', req.params.b_id);
     try {
-        await Crew_2.deleteById(req.params.id).then(([rows]) => {
+        await Crew_2.deleteById(req.params.b_id).then(([rows]) => {
             res.redirect('/crew');
         });
         // res.json(req.body);
@@ -264,9 +264,9 @@ exports.delete1Crew3 = async (req, res) => {
 };
 
 exports.delete2Crew3 = async (req, res) => {
-    console.log('delete2Crew3', req.params.id);
+    console.log('delete2Crew3', req.params.c_id);
     try {
-        await Crew_3.deleteById(req.params.id).then(([rows]) => {
+        await Crew_3.deleteById(req.params.c_id).then(([rows]) => {
             res.redirect('/crew');
         });
         // res.json(req.body);
@@ -288,9 +288,9 @@ exports.delete1Crew4 = async (req, res) => {
 };
 
 exports.delete2Crew4 = async (req, res) => {
-    console.log('delete2Crew4', req.params.id);
+    console.log('delete2Crew4', req.params.d_id);
     try {
-        await Crew_4.deleteById(req.params.id).then(([rows]) => {
+        await Crew_4.deleteById(req.params.d_id).then(([rows]) => {
             res.redirect('/crew');
         });
         // res.json(req.body);

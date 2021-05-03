@@ -1,20 +1,22 @@
 const db = require('../utils/database');
 
 const Crew_1 = class Crew_1 {
-    constructor(a_id, tid, crew_name, car, crew_img, car_img) {
+    constructor(a_id, tid, crew_name, car, crew_img, car_img, instruction, name) {
         this.a_id = a_id;
         this.tid = tid;
         this.crew_name = crew_name;
         this.car = car;
         this.crew_img = crew_img;
         this.car_img = car_img;
+        this.instruction = instruction;
+        this.name = name;
     }
 
     // CREATE have completed
     static create(req, res) {
         console.log('create', req.body);
         return db.execute(
-            'INSERT INTO a (a_id, tid, crew_name, car, crew_img, car_img) VALUES (?, ?, ?, ?, ?, ?)',
+            'INSERT INTO a (a_id, tid, crew_name, car, crew_img, car_img, instruction, name) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
             [
                 req.body.a_id,
                 req.body.tid,
@@ -22,6 +24,8 @@ const Crew_1 = class Crew_1 {
                 req.body.car,
                 req.body.crew_img,
                 req.body.car_img,
+                req.body.instruction,
+                req.body.name
             ]
         );
     }
@@ -34,9 +38,11 @@ const Crew_1 = class Crew_1 {
         const car = req.body.car;
         const crew_img = req.body.crew_img;
         const car_img = req.body.car_img;
+        const instruction = req.body.instruction;
+        const name = req.body.name;
         return db.execute(
-            'UPDATE a SET crew_name = ?, tid = ? , car = ? , crew_img = ? , car_img = ? WHERE a_id = ?',
-            [crew_name, tid, car, crew_img, car_img, a_id]
+            'UPDATE a SET crew_name = ?, tid = ? , car = ? , crew_img = ? , car_img = ?, instruction = ? , name = ? WHERE a_id = ?',
+            [crew_name, tid, car, crew_img, car_img,instruction,name, a_id]
         );
     }
     // DELETE
